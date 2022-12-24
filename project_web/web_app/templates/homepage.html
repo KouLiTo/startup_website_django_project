@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href=" {% static 'css/style.css' %}">
+    <title>{% block title %}NAME_OF_THE_COMPANY{% endblock title%}</title>
+</head>
+<body>
+    <aside>
+        <img src="{% static 'images/feather.jpg' %}" width="150" height="200" alt="pic">
+        <h2 id="space"><b>Navigation</b></h2>
+        <ul class="bord">
+            <p><a href="{% url 'home' %}"><li class="pl1"><img src="{% static 'images/homepage.png' %}" width="25" alt="">Main page</li></a></p>
+            <br>
+            <p><a href="{% url 'income' %}"><li class="pl1"><img src="{% static 'images/money.png' %}" width="25" alt="">Passive income</li></a></p>
+            <br>
+            <p><a href="{% url 'apps' %}"><li class="pl1"><img src="{% static 'images/work.png' %}" width="25" alt="">Our apps</li></a></p>
+            <br>
+            <p><a href=""><li class="pl1"><img src="{% static 'images/products.png' %}" width="25" alt="">Our services</li></a></p>
+            <br>
+            <p><a href="{% url 'contact' %}"><li class="pl1"><img src="{% static 'images/contact.png' %}" width="25" alt="">Contacts</li></a></p>
+            <br>
+        </ul>
+    </aside>
+    <main>
+        <h1 class="pl2 text_c"><b>We create a game, generating money for you!</b></h1>
+        {% block content %}
+        <h2 class="pl3">Hi everybody!</h2>
+        <br>
+        <p class="pl3 text_j">
+            You might have already heard gossip about making much money for doing nothing.
+            <br>
+            Okay, we would say it is not working! We know, we tried =)
+        </p>
+        <p class="pl3 text_j">
+            We found another way to generate some passive income for us! We are creating mobile puzzle games
+            and deploy them at the Android and IOS platform.
+            <br>
+            We create small simple brain games like puzzles, tetris, sudoku and so on.
+            <br>
+        </p>
+        <p class="pl3 text_j">
+            We also want to give a possibility for everybody to have your own deployed game that
+            would bring money only for you, and only you will be the owner of the game!
+            <br>
+            It does not matter if you can code or not, we will code your game or games - provided you want more of them
+            - for you!
+        </p>
+        {% endblock content%}
+    </main>
+</body>
+</html>

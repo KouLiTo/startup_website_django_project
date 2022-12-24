@@ -1,0 +1,22 @@
+{% extends "homepage.html" %}
+{% block title %}Passive Income{% endblock %}
+
+
+{% block content %}
+<h2><b>So you made the first step!</b></h2>
+<p class="pl3 text_j">How it works?</p>
+<ol class="pl3 text_j">
+    <li>You contact us and we answer all your questions</li>
+    <li>We help you decide what game we shall do for you</li>
+    <li>You order the game</li>
+    <li>We write down your game</li>
+    <li>We help you create developer account at the Apple or Android</li>
+    <li>We consult you of marketing options * first consultation is free of charge for you *</li>
+    <li>You have your own game generating passive income for you</li>
+</ol>
+<p class="pl3">You can calculate your possible monthly rewards:</p>
+<form class="pl3" action="{% url 'calc' %}" method="post">
+    How many games do you want?<input class="pl1" type="number" min="1" name="numeric"><br>
+    <button class="pl1" type="submit">CALCULATE</button>
+</form>
+{% endblock %}

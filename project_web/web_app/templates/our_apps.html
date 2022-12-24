@@ -1,0 +1,9 @@
+{% extends "homepage.html" %}
+{% block title %}Our projects{% endblock title%}
+{% block content %}
+{% for project in all_projects %}
+    <ul>
+        <p><a href="{{project.link}}" target="blank"><li class="pl3">{{project.title}}</li></a></p>
+    </ul>
+    {% endfor %}
+{% endblock content%}

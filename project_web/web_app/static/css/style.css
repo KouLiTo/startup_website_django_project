@@ -1,0 +1,64 @@
+body {
+    background-color: #D5F5E3;
+}
+
+.pl1 {
+    font-size: 120%;
+}
+
+.pl2 {
+    font-size: 400%;
+}
+
+.pl3 {
+    font-size: 180%;
+}
+
+.pl4 {
+    font-size: 150%;
+}
+
+.text_c {
+    text-align: center;
+}
+
+.text_l {
+    text-align: left;
+}
+
+.text_l {
+    text-align: right;
+}
+
+.text_j {
+    text-align: justify;
+}
+
+#space {
+    color: darkblue;
+    }
+
+.bord {
+    border: 4px double black;
+    width: 250px;
+    padding: 20px;
+    background: #20B2AA;
+}
+
+aside {
+    float: left;
+    width: 20%;
+    height: 100vh;
+}
+
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    transition all .6s ease;
+}
+aside ul li:hover, aside ul a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.15);
+}
