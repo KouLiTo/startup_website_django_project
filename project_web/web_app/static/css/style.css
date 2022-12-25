@@ -57,8 +57,21 @@ aside ul li {
     margin-top: 20px;
     transition all .6s ease;
 }
+
 aside ul li:hover, aside ul a:hover {
     color: #eb5959;
     text-decoration: none;
     transform: scale(1.15);
 }
+
+ul.hr {
+    margin: 0; /* Обнуляем значение отступов */
+    padding: 4px; /* Значение полей */
+   }
+
+ul.hr li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    border: 3px double #000; /* Рамка вокруг текста */
+    padding: 10px; /* Поля вокруг текста */
+   }

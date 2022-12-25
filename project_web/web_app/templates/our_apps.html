@@ -1,9 +1,19 @@
 {% extends "homepage.html" %}
+{% load static %}
 {% block title %}Our projects{% endblock title%}
 {% block content %}
-{% for project in all_projects %}
+{% for project in page_obj %}
     <ul>
         <p><a href="{{project.link}}" target="blank"><li class="pl3">{{project.title}}</li></a></p>
     </ul>
     {% endfor %}
+<nav>
+    <ul class="hr">
+        {% for p in page_obj.paginator.page_range %}
+        <li>
+            <a href="?page={{ p }}" class="pl3">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
 {% endblock content%}

@@ -4,6 +4,9 @@ from django.views.decorators.csrf import csrf_exempt
 from . import forms
 from . models import Projects
 from django.views.generic import TemplateView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+#from rest_framework.pagination import PageNumberPagination
+
 
 
 # Create your views here.
@@ -53,13 +56,23 @@ def contact_sent(request):
         return render(request, "contact_form.html", context)
 
 
+
+#class ObjectPagination(PageNumberPagination):
+#    page_size = 3
+#    page_size_query_param = "page_size"
+#    max_page_size = 10000
+
+
 class Objects(TemplateView):
     template_name = "our_apps.html"
 
     def get(self, request, *args, **kwargs):
-        all_apps = Projects.objects.all()
-
+        all_apps = Projects.objects.all().order_by("-id")
+        paginator = Paginator(all_apps, 10)
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
         context = {
+            "page_obj": page_obj,
             "all_projects": all_apps
         }
         return render(request, self.template_name, context)
