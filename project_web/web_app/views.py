@@ -4,7 +4,9 @@ from django.views.decorators.csrf import csrf_exempt
 from . import forms
 from . models import Projects, Basic, Standard, Premium
 from django.views.generic import TemplateView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator
+import smtplib
+from .static import passwords as p
 
 
 # Create your views here.
@@ -36,13 +38,29 @@ def contact_form(request):
     return render(request, "contact_form.html", context)
 
 
+def send_mail(msg: str):
+    sender_mail = p.sender_mail
+    password = p.sender_mail_password
+    server = smtplib.SMTP("smtp.office365.com", 587)
+    server.starttls()
+    try:
+        server.login(sender_mail, password)
+        print("Login success")
+        server.sendmail(sender_mail, p.receiver_mail, msg)
+        print(f"Email has been sent")
+    except BaseException as E:
+        print(E, "Error! We failed to send email! Check configurations")
+
+
 @csrf_exempt
 def contact_sent(request):
     form = forms.FeedbackForm(request.POST)
     if request.method == "POST" and form.is_valid():
         data = form.cleaned_data
-        print(data)
         form.save()
+        if data["subject"] == "technical question":
+            msg = "\n" * 4 + "Customer's mail address: " + data["email"] + "\n" * 2 + data["text"]
+            send_mail(msg=msg)
         context = {
             "msg": "Thank you for your message. We will be in touch with you soon"
         }
@@ -86,3 +104,5 @@ class TableData(TemplateView):
             return render(request, self.template_name, context)
         except Exception:
             return HttpResponse("There are no data yet. Site is being updated, please wait")
+
+

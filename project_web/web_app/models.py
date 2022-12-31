@@ -1,7 +1,5 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from datetime import timezone
-from django.utils.timezone import timezone
 
 
 
@@ -13,6 +11,7 @@ class Feedback(models.Model):
         ("consulting", "Consulting"),
         ("marketing", "Marketing of games"),
         ("licence and deploying", "Licence and Deploying"),
+        ("technical question", "Technical Question"),
         ("other question", "Other question"),
     )
 
