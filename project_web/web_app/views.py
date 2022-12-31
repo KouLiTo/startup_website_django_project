@@ -2,11 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from . import forms
-from . models import Projects
+from . models import Projects, Basic, Standard, Premium
 from django.views.generic import TemplateView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-#from rest_framework.pagination import PageNumberPagination
-
 
 
 # Create your views here.
@@ -56,13 +54,6 @@ def contact_sent(request):
         return render(request, "contact_form.html", context)
 
 
-
-#class ObjectPagination(PageNumberPagination):
-#    page_size = 3
-#    page_size_query_param = "page_size"
-#    max_page_size = 10000
-
-
 class Objects(TemplateView):
     template_name = "our_apps.html"
 
@@ -76,3 +67,22 @@ class Objects(TemplateView):
             "all_projects": all_apps
         }
         return render(request, self.template_name, context)
+
+
+
+class TableData(TemplateView):
+    template_name = "services.html"
+
+    def get(self, request, *args, **kwargs):
+        try:
+            basics = Basic.objects.all().order_by("-id")[0]
+            standards = Standard.objects.all().order_by("-id")[0]
+            premiums = Premium.objects.all().order_by("-id")[0]
+            context = {
+                "basics": basics,
+                "standards": standards,
+                "premiums": premiums
+            }
+            return render(request, self.template_name, context)
+        except Exception:
+            return HttpResponse("There are no data yet. Site is being updated, please wait")

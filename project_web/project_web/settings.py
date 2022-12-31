@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'project_web.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ourdb',
+        'NAME': 'our_db',
         'USER': 'postgres',
         'PASSWORD': "Gena1991",
         'HOST': '127.0.0.1',
@@ -130,3 +130,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'web_app\static')]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}

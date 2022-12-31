@@ -1,0 +1,124 @@
+{% extends "homepage.html" %}
+{% load poll_extras %}
+{% load static %}
+{% block title %}Our services{% endblock %}
+
+
+{% block content %}
+    <table class="pl4">
+        <tr>
+            <th>OUR SERVICE</th>
+            <th>BASIC</th>
+            <th>STANDARD</th>
+            <th>PREMIUM</th>
+        </tr>
+        <tr>
+            <td>DEPLOYING TO THE APP STORE OR ANDROID</td>
+            {% if basics.deploy_to_the_store %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if standards.deploy_to_the_store %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if premiums.deploy_to_the_store %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>DESIGN</td>
+            {% if basics.design %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if standards.design %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if premiums.design %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>ANIMATION</td>
+            {% if basics.animation %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if standards.animation %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if premiums.animation %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>SOURCE CODE</td>
+            {% if basics.source_code %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if standards.source_code %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if premiums.source_code %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>MARKETING CONSULTING</td>
+            {% if basics.marketing_consulting %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if standards.marketing_consulting %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+            {% if premiums.marketing_consulting %}
+            <td><img src="{% static 'images/yes_symbol.png' %}" width="40" alt=""></td>
+            {% else %}
+            <td><img src="{% static 'images/no_symbol.png' %}" width="40" alt=""></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>NUMBER OF LEVELS</td>
+            <td>{{basics.number_of_levels}}</td>
+            <td>{{standards.number_of_levels}}</td>
+            <td>{{premiums.number_of_levels}}</td>
+        </tr>
+        <tr>
+            <td>AWAITING TIME</td>
+            <td>{{basics.awaiting_time}} day(s)</td>
+            <td>{{standards.awaiting_time}} day(s)</td>
+            <td>{{premiums.awaiting_time}} day(s)</td>
+        </tr>
+        <tr>
+            <td>PRICE</td>
+            <td>{{basics.price|round_value}} USD</td>
+            <td>{{standards.price|round_value}} USD</td>
+            <td>{{premiums.price|round_value}} USD</td>
+        </tr>
+    </table>
+{% endblock content%}
