@@ -6,3 +6,4 @@
 - There is a service table representing three tariff plans with possibility to manage prices and services though the admin channel,
 - Projects uses models, models forms, email renderings, service represantaion logic, simple income calculation logic, CSS styles and static files,
 - Postgres is used as a project data base. 
+- The project is located in the master branch, please go there
