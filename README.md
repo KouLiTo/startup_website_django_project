@@ -7,3 +7,4 @@
 - Projects uses models, models forms, email renderings, service represantaion logic, simple income calculation logic, CSS styles and static files,
 - Postgres is used as a project data base. 
 - The project is located in the master branch, please go there
+- password.py with data for email rendering on technical issues is added to git, so you have to create your own password.py in static or write email configurations in the views.py directly in the email func.
