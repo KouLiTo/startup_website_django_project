@@ -45,8 +45,6 @@ class Basic(models.Model):
     price                         = models.FloatField()
 
 
-
-
 class Standard(models.Model):
     deploy_to_the_store            = models.BooleanField(default=False)
     design                         = models.BooleanField(default=False)
@@ -59,7 +57,6 @@ class Standard(models.Model):
 
 
 
-
 class Premium(models.Model):
     deploy_to_the_store            = models.BooleanField(default=False)
     design                         = models.BooleanField(default=False)
@@ -69,5 +66,3 @@ class Premium(models.Model):
     number_of_levels               = models.PositiveSmallIntegerField()
     awaiting_time                  = models.PositiveSmallIntegerField()
     price                          = models.FloatField()
-
-
